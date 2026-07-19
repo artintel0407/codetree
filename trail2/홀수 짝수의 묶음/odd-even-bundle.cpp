@@ -1,5 +1,5 @@
-#include <iostream> // 2분 시작
-using namespace std; // 11분 이해 완료
+#include <iostream>
+using namespace std;
 
 int main() {
     int n;
@@ -12,43 +12,21 @@ int main() {
         int x;
         cin >> x;
 
-        if (x % 2 == 1) odd++;
-        else even++;
+        if (x % 2 == 0)
+            even++;
+        else
+            odd++;
     }
-    
-    int cnt = 0;
 
-    // 29분 진짜 이해 완료
+    while (odd > even) {
+        odd -= 2;
+        even++;
+    }
 
-    if (odd < even) {
+    if (even > odd)
         cout << 2 * odd + 1;
-    }
-    else if (odd == even) {
-        cout << odd * 2;
-    }
-    else {
-        int res = 2 * even;
-        int dif = odd - even;
+    else
+        cout << 2 * even;
 
-        if (dif == 1) {
-            if (res == 0) {
-                cout << 1;
-            }
-            else {
-                cout << res - 1;
-            }
-        }
-        else {
-            res += ((dif + 1) / 3) * 2 - 1;
-
-            if (dif % 3 == 0) res++;
-
-            cout << res;
-        }
-
-
-    }
-   
-    // Please write your code here.
     return 0;
-} // 
+}
